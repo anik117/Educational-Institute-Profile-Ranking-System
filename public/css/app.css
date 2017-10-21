@@ -2030,7 +2030,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1200px;
   }
 }
 
@@ -5811,7 +5811,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -5825,7 +5825,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
@@ -5883,7 +5883,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #abb4e2;
+    color: #d1d6ef;
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -5908,7 +5908,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-link {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .navbar-link:hover {
@@ -5916,7 +5916,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .btn-link {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .btn-link:hover,
@@ -8363,24 +8363,24 @@ button.close {
 .navbar-inverse .navbar-form input[type=text],
 .navbar-inverse .navbar-form input[type=password] {
   color: #fff;
-  -webkit-box-shadow: inset 0 -1px 0 #abb4e2;
-  box-shadow: inset 0 -1px 0 #abb4e2;
+  -webkit-box-shadow: inset 0 -1px 0 #d1d6ef;
+  box-shadow: inset 0 -1px 0 #d1d6ef;
 }
 
 .navbar-inverse .navbar-form input[type=text]::-moz-placeholder,
 .navbar-inverse .navbar-form input[type=password]::-moz-placeholder {
-  color: #abb4e2;
+  color: #d1d6ef;
   opacity: 1;
 }
 
 .navbar-inverse .navbar-form input[type=text]:-ms-input-placeholder,
 .navbar-inverse .navbar-form input[type=password]:-ms-input-placeholder {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .navbar-form input[type=text]::-webkit-input-placeholder,
 .navbar-inverse .navbar-form input[type=password]::-webkit-input-placeholder {
-  color: #abb4e2;
+  color: #d1d6ef;
 }
 
 .navbar-inverse .navbar-form input[type=text]:focus,

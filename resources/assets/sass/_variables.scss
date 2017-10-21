@@ -350,7 +350,7 @@ $container-desktop:            (940px + $grid-gutter-width) !default;
 $container-md:                 $container-desktop !default;
 
 // Large screen / wide desktop
-$container-large-desktop:      (1140px + $grid-gutter-width) !default;
+$container-large-desktop:      (1170px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 
@@ -398,7 +398,7 @@ $navbar-inverse-bg:                         $brand-primary !default;
 $navbar-inverse-border:                     transparent !default;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 lighten($brand-primary, 30%) !default;
+$navbar-inverse-link-color:                 lighten($brand-primary, 40%) !default;
 $navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
