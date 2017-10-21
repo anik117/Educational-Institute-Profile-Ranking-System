@@ -21,16 +21,16 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home(Request $request)
+    public function index(Request $request)
     {
         $request->user()->authorizeRoles(['visitor', 'admin']);
-        return view('pages.index');
+        return view('dashboard');
     }
 
 
-    public function index(Request $request)
+    public function adminDashboard(Request $request)
     {
         $request->user()->authorizeRoles('admin');
-        return view('dashboard');
+        return view('admin.dashboard');
     }
 }

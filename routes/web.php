@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+// Route::get('/', 'PagesController@index');
+Route::get('/', ['uses' => 'PagesController@index', 'as' => 'home']);
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/', 'DashboardController@home');
+// Route::get('/dashboard', 'DashboardController@index');
+// Route::get('/admin/dashboard', 'DashboardController@adminDashboard');
+
+Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard']);
+Route::get('admin/dashboard', ['uses' => 'DashboardController@adminDashboard', 'as' => 'admin.dashboard']);
