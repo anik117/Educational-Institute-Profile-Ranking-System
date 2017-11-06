@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,16 +22,21 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    // public function index(Request $request)
+    // {
+    //     $request->user()->authorizeRoles(['visitor', 'admin']);
+    //     return view('dashboard');
+    // }
+
+    public function index()
     {
-        $request->user()->authorizeRoles(['visitor', 'admin']);
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
         return view('dashboard');
     }
 
-
-    public function adminDashboard(Request $request)
+    public function adminDashboard()
     {
-        $request->user()->authorizeRoles('admin');
         return view('admin.dashboard');
     }
 }

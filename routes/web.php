@@ -16,8 +16,19 @@ Route::get('/', ['uses' => 'PagesController@index', 'as' => 'home']);
 
 Auth::routes();
 
-// Route::get('/dashboard', 'DashboardController@index');
-// Route::get('/admin/dashboard', 'DashboardController@adminDashboard');
+
+// Route::group(['middleware'=>['role:District Education Office','auth']],function(){
+// 	Route::resource('admin/permission', 'Admin\\PermissionController');
+// 	Route::resource('admin/role', 'Admin\\RoleController');
+// 	Route::resource('admin/user', 'Admin\\UserController');
+// });
+
+Route::group(['middleware'=>['auth']], function(){
+	Route::view('/admin','admin.dashboard');
+});
 
 Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard']);
-Route::get('admin/dashboard', ['uses' => 'DashboardController@adminDashboard', 'as' => 'admin.dashboard']);
+
+Route::resource('admin/permission', 'Admin\\PermissionController');
+Route::resource('admin/role', 'Admin\\RoleController');
+Route::resource('admin/user', 'Admin\\UserController');
