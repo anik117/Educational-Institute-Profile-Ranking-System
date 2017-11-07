@@ -22,10 +22,10 @@ Route::group(['middleware'=>['role:deo','auth']],function(){
 	Route::resource('admin/permission', 'Admin\\PermissionController');
 	Route::resource('admin/role', 'Admin\\RoleController');
 	Route::resource('admin/user', 'Admin\\UserController');
+	Route::resource('admin/area', 'Admin\\AreaController');
 });
 
 Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard']);
 
-// Route::resource('admin/permission', 'Admin\\PermissionController');
-// Route::resource('admin/role', 'Admin\\RoleController');
-// Route::resource('admin/user', 'Admin\\UserController');
+Route::get('/area/{id}', 'AreaShowController@show');
+Route::get('/area', 'AreaShowController@index');

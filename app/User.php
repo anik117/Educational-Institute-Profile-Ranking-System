@@ -36,6 +36,10 @@ class User extends Authenticatable
         }
     }
 
+    public function areas()
+    {
+        return $this->hasMany(Area::class);
+    }
     // public function roles()
     // {
     //   return $this

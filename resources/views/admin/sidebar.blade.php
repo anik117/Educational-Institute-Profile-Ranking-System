@@ -6,7 +6,11 @@
 	    <div class="panel-body">
         <ul class="nav" role="tablist">
             <li role="presentation">
-            	<a href="{{ url('/dashboard')}}"> Dashboard</a>
+            	<a href="{{ url('/admin')}}"> Dashboard</a>
+            </li>
+
+            <li role="presentation">
+                <a href="{{ url('/admin/user')}}"> User</a>
             </li>
 
             <li role="presentation">
@@ -18,7 +22,7 @@
             </li>
 
             <li role="presentation">
-                <a href="{{ url('/admin/user')}}"> User</a>
+                <a href="{{ url('/admin/area')}}"> Area</a>
             </li>
         </ul>
 	    </div>
