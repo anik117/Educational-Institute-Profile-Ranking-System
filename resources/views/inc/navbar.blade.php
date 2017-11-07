@@ -49,6 +49,9 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                @role('deo') {{-- Laravel-permission blade helper --}}
+                                    <a href="/admin">Admin Dashboard</a>
+                                @endrole
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
