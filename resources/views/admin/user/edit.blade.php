@@ -10,7 +10,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h5><span class="text-muted">Edit </span>{{ $user->name }}</h5></div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 

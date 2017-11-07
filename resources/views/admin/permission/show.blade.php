@@ -10,8 +10,8 @@
                     <div class="panel-heading"><h5>{{ $permission->name }}</h5></div>
                     <div class="panel-body">
 
-                        <a href="{{ url('/admin/permission') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/permission/' . $permission->id . '/edit') }}" title="Edit Permission"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/admin/permission') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/permission/' . $permission->id . '/edit') }}" title="Edit Permission"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/permission', $permission->id],
@@ -19,7 +19,7 @@
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                     'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-xs',
+                                    'class' => 'btn btn-danger btn-md',
                                     'title' => 'Delete Permission',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}

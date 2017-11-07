@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Create New Role</div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/role') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/role') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 

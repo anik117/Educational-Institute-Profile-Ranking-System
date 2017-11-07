@@ -10,8 +10,8 @@
                     <div class="panel-heading"><h5>{{ $user->name }}</h5></div>
                     <div class="panel-body">
 
-                        <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/user/' . $user->id . '/edit') }}" title="Edit user"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/user/' . $user->id . '/edit') }}" title="Edit user"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/user', $user->id],
@@ -19,7 +19,7 @@
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                     'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-xs',
+                                    'class' => 'btn btn-danger btn-md',
                                     'title' => 'Delete user',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
@@ -41,6 +41,10 @@
                                     <tr>
                                         <th> Email </th>
                                         <td> {{ $user->email }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Role </th>
+                                        <td> {{ $user->roles->implode('name', ', ') }} </td>
                                     </tr>
                                 </tbody>
                             </table>
