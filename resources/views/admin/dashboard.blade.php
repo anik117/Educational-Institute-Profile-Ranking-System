@@ -8,7 +8,8 @@
             <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h5>Welcome Admin!</h5>
+                        <h5>Welcome {{ Auth::user()->name }}!</h5>
+                        <p class="text-muted">Manage all the things</p>
                     </div>
                 </div>
             </div>

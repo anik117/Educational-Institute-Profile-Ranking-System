@@ -13,7 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in!
+                    <p>You are logged in!</p>
+
+                    @role('deo') {{-- Laravel-permission blade helper --}}
+                        <a class="btn btn-primary" href="/admin">Admin Dashboard</a>
+                    @endrole
                 </div>
             </div>
         </div>
