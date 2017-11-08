@@ -14,4 +14,18 @@
         <li class="list-group-item">Thana: {{ $area->thana }}</li>
       </ul>
     </div>
+
+    <div class="panel panel-default" style="margin-top: 30px;">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h5>Schools</h5>
+      </div>
+
+      <!-- List group -->
+      <ul class="list-group">
+        @foreach($schools as $school)
+          <li class="list-group-item"><a href="{{ url('school/' . $school->id) }}">{{ $school->name }}</a></li>
+        @endforeach
+      </ul>
+    </div>
 @endsection

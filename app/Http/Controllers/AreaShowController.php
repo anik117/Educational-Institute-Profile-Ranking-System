@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Area;
+use App\School;
 use Illuminate\Http\Request;
 
 class AreaShowController extends Controller
@@ -14,6 +15,7 @@ class AreaShowController extends Controller
 
     public function show($id){
     	$area = Area::find($id);
-    	return view('area.show',compact('area'));
+    	$schools = School::all();
+    	return view('area.show',compact('area', 'schools'));
     }
 }
