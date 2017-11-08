@@ -30,3 +30,6 @@ Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashbo
 
 Route::get('/area/{id}', 'AreaShowController@show');
 Route::get('/area', 'AreaShowController@index');
+
+Route::get('/school/{id}', 'SchoolShowController@show');
+Route::get('/school', 'SchoolShowController@index');
