@@ -24,16 +24,16 @@
 
             <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
+              <li><a href="/area">Area</a></li>
+              <li><a href="/school">School</a></li>
+              {{-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schools <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">View All</a></li>
                   <li><a href="#">Reports</a></li>
                   <li><a href="#">Progress</a></li>
                 </ul>
-              </li>
+              </li> --}}
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -52,9 +52,9 @@
                                 <a href="">Profile</a>
                             </li>
                             <li>
-                                {{-- @role('deo')
+                                @role('deo')
                                     <a href="/admin">Admin Dashboard</a>
-                                @endrole --}}
+                                @endrole
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
