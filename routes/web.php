@@ -23,6 +23,7 @@ Route::group(['middleware'=>['role:deo','auth']],function(){
 	Route::resource('admin/role', 'Admin\\RoleController');
 	Route::resource('admin/user', 'Admin\\UserController');
 	Route::resource('admin/area', 'Admin\\AreaController');
+	Route::resource('admin/school', 'Admin\\SchoolController');
 });
 
 Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard']);

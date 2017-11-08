@@ -24,6 +24,10 @@
             <li role="presentation">
                 <a href="{{ url('/admin/area')}}"> Area</a>
             </li>
+
+            <li role="presentation">
+                <a href="{{ url('/admin/school')}}"> School</a>
+            </li>
         </ul>
 	    </div>
 	</div>

@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h5><span class="text-muted">Edit</span> {{ $area->thana }} </h5></div>
+                    <div class="panel-heading">Create New School</div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/area') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/school') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,14 +21,9 @@
                             </ul>
                         @endif
 
-                        {!! Form::model($area, [
-                            'method' => 'PATCH',
-                            'url' => ['/admin/area', $area->id],
-                            'class' => 'form-horizontal',
-                            'files' => true
-                        ]) !!}
+                        {!! Form::open(['url' => '/admin/school', 'class' => 'form-horizontal', 'files' => true]) !!}
 
-                        @include ('admin.area.form', ['submitButtonText' => 'Update'])
+                        @include ('admin.school.form')
 
                         {!! Form::close() !!}
 
