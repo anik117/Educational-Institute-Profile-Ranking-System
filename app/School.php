@@ -25,7 +25,7 @@ class School extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'thana'];
+    protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'thana', 'area_id'];
 
     public function area()
     {

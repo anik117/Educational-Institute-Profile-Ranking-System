@@ -20,7 +20,7 @@ class CreateSchoolsTable extends Migration
             $table->string('email')->nullable();
             $table->integer('phone')->nullable();
             $table->string('thana')->nullable();
-            $table->integer('area_id');
+            $table->integer('area_id')->nullable();
             $table->timestamps();
         });
     }
