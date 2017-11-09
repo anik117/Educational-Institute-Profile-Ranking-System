@@ -6,6 +6,7 @@
             @include('admin.sidebar')
 
             <div class="col-md-9">
+                @include('inc.message')
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>User</h4></div>
                     <div class="panel-body">

@@ -28,6 +28,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     {{-- Custom script --}}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     @yield('script')
+    <script>
+        $('div.alert').not('.alert-important').delay(1000).fadeOut(250);
+    </script>
 </body>
 </html>
