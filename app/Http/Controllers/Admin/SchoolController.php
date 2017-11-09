@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\School;
+use App\Area;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
@@ -42,7 +43,8 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('admin.school.create');
+        $areas=Area::get()->pluck('thana','thana');
+        return view('admin.school.create', compact('areas'));
     }
 
     /**
@@ -86,8 +88,9 @@ class SchoolController extends Controller
     public function edit($id)
     {
         $school = School::findOrFail($id);
+        $areas=Area::get()->pluck('thana','thana');
 
-        return view('admin.school.edit', compact('school'));
+        return view('admin.school.edit', compact('school', 'areas'));
     }
 
     /**
