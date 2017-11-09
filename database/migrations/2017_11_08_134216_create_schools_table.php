@@ -14,12 +14,12 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->integer('code')->nullable();
+            $table->string('name');
+            $table->integer('code')->->unique();
             $table->string('website')->nullable();
             $table->string('email')->nullable();
-            $table->integer('phone')->nullable();
-            $table->string('thana')->nullable();
+            $table->string('phone', 11)->nullable();
+            $table->string('thana');
             $table->integer('area_id')->nullable();
             $table->timestamps();
         });
