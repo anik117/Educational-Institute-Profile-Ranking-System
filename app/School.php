@@ -27,5 +27,9 @@ class School extends Model
      */
     protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'thana'];
 
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
     
 }

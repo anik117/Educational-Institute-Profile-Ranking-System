@@ -32,5 +32,9 @@ class Area extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function schools()
+    {
+        return $this->hasMany(School::class);
+    }
     
 }
