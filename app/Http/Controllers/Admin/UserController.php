@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Area;
 use Illuminate\Http\Request;
 class UserController extends Controller
 {
@@ -29,7 +30,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $areas=Area::get()->pluck('thana','thana');
+        return view('admin.user.create', compact('areas'));
     }
     /**
      * Store a newly created resource in storage.
@@ -69,7 +71,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.user.edit', compact('user'));
+        $areas=Area::get()->pluck('thana','thana');
+        return view('admin.user.edit', compact('user', 'areas'));
     }
     /**
      * Update the specified resource in storage.
