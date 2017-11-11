@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Area;
+use App\School;
 use Illuminate\Http\Request;
 class UserController extends Controller
 {
@@ -31,7 +32,8 @@ class UserController extends Controller
     public function create()
     {
         $areas=Area::get()->pluck('thana','thana');
-        return view('admin.user.create', compact('areas'));
+        $schools=School::get()->pluck('name','name');
+        return view('admin.user.create', compact('areas', 'schools'));
     }
     /**
      * Store a newly created resource in storage.
@@ -72,7 +74,8 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $areas=Area::get()->pluck('thana','thana');
-        return view('admin.user.edit', compact('user', 'areas'));
+        $schools=School::get()->pluck('name','name');
+        return view('admin.user.edit', compact('user', 'areas', 'schools'));
     }
     /**
      * Update the specified resource in storage.
