@@ -17,7 +17,7 @@ Route::get('/', ['uses' => 'PagesController@index', 'as' => 'home']);
 Auth::routes();
 
 
-Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
 	Route::view('/admin','admin.dashboard');
 	Route::resource('admin/permission', 'Admin\\PermissionController');
 	Route::resource('admin/role', 'Admin\\RoleController');
