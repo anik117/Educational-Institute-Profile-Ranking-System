@@ -14,11 +14,15 @@
             </li>
 
             <li role="presentation">
-            	<a href="{{ url('/admin/role')}}"> Role</a>
+                @role('deo')
+                    <a href="{{ url('/admin/role')}}"> Role</a>
+                @endrole
             </li>
 
             <li role="presentation">
-            	<a href="{{ url('/admin/permission')}}"> Permission</a>
+                @role('deo')
+                    <a href="{{ url('/admin/permission')}}"> Permission</a>
+                @endrole          	
             </li>
 
             <li role="presentation">

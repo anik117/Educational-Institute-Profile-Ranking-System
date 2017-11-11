@@ -15,7 +15,7 @@
                     @endif
                     <p>You are logged in!</p>
 
-                    @role('deo') {{-- Laravel-permission blade helper --}}
+                    @role('deo|ah|hm') {{-- Laravel-permission blade helper --}}
                         <a class="btn btn-primary" href="/admin">Admin Dashboard</a>
                     @endrole
                 </div>

@@ -11,19 +11,23 @@
                     <div class="panel-body">
 
                         <a href="{{ url('/admin/area') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/area/' . $area->id . '/edit') }}" title="Edit Area"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                        {!! Form::open([
-                            'method'=>'DELETE',
-                            'url' => ['admin/area', $area->id],
-                            'style' => 'display:inline'
-                        ]) !!}
-                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                    'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-md',
-                                    'title' => 'Delete Area',
-                                    'onclick'=>'return confirm("Confirm delete?")'
-                            ))!!}
-                        {!! Form::close() !!}
+                        @can('edit area')
+                            <a href="{{ url('/admin/area/' . $area->id . '/edit') }}" title="Edit Area"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        @endcan
+                        @can('delete area')
+                            {!! Form::open([
+                                'method'=>'DELETE',
+                                'url' => ['admin/area', $area->id],
+                                'style' => 'display:inline'
+                            ]) !!}
+                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
+                                        'type' => 'submit',
+                                        'class' => 'btn btn-danger btn-md',
+                                        'title' => 'Delete Area',
+                                        'onclick'=>'return confirm("Confirm delete?")'
+                                ))!!}
+                            {!! Form::close() !!}
+                        @endcan
                         <br/>
                         <br/>
 

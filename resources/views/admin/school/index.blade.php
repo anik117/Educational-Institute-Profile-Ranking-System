@@ -10,10 +10,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>School</h4></div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/school/create') }}" class="btn btn-success btn-md" title="Add New School">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
-
+                        @can('add school')
+                            <a href="{{ url('/admin/school/create') }}" class="btn btn-success btn-md" title="Add New School">
+                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            </a>
+                        @endcan
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/school', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
@@ -42,18 +43,20 @@
                                         <td>
                                             <a href="{{ url('/admin/school/' . $item->id) }}" title="View School"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/school/' . $item->id . '/edit') }}" title="Edit School"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            {!! Form::open([
-                                                'method'=>'DELETE',
-                                                'url' => ['/admin/school', $item->id],
-                                                'style' => 'display:inline'
-                                            ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-sm',
-                                                        'title' => 'Delete School',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
-                                            {!! Form::close() !!}
+                                            @can('delete school')
+                                                {!! Form::open([
+                                                    'method'=>'DELETE',
+                                                    'url' => ['/admin/school', $item->id],
+                                                    'style' => 'display:inline'
+                                                ]) !!}
+                                                    {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
+                                                            'type' => 'submit',
+                                                            'class' => 'btn btn-danger btn-sm',
+                                                            'title' => 'Delete School',
+                                                            'onclick'=>'return confirm("Confirm delete?")'
+                                                    )) !!}
+                                                {!! Form::close() !!}
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
