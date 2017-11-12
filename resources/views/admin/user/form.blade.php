@@ -53,7 +53,7 @@
     <script type="text/javascript">
         var permission = {
             deo: {
-                show: ['thana', 'school'],
+                show: [],
                 hide: []
             },
             ah: {
@@ -61,8 +61,8 @@
                 hide: ['school']
             },
             hm: {
-                show: ['school'],
-                hide: ['thana']
+                show: ['thana', 'school'],
+                hide: []
             }
         };
         $('#role').select(function () {
