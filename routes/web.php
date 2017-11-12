@@ -26,7 +26,7 @@ Route::group(['middleware'=>['role:deo', 'auth']],function(){
 	Route::resource('admin/school', 'Admin\\SchoolController');
 });
 
-Route::group(['middleware'=>['role:ah|hm', 'auth']],function(){
+Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
 	Route::view('/admin','admin.dashboard');
 	Route::resource('admin/user', 'Admin\\UserController');
 	Route::resource('admin/area', 'Admin\\AreaController');
