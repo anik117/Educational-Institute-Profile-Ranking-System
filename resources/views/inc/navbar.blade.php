@@ -66,7 +66,7 @@
                                 <a href="">Profile</a>
                             </li>
                             <li>
-                                @role('deo')
+                                @role('deo|ah|hm|sa')
                                     <a href="/admin">Admin Dashboard</a>
                                 @endrole
                                 <a href="{{ route('logout') }}"
