@@ -19,7 +19,7 @@
         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group {{ $errors->has('roles') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('roles') ? 'has-error' : ''}}" id="role">
     {!! Form::label('roles', 'Roles', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::select('roles[]', Spatie\Permission\Models\Role::get()->pluck('name','name'), isset($user)?$user->getRoleNames():null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('thana') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('thana') ? 'has-error' : ''}}" id="thana">
     {!! Form::label('thana', 'Thana', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::select('thana', $areas, null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('school') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('school') ? 'has-error' : ''}}" id="school">
     {!! Form::label('school', 'School', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::select('school', $schools, null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
@@ -48,3 +48,40 @@
         {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Create', ['class' => 'btn btn-primary']) !!}
     </div>
 </div>
+
+@section('script')
+    <script type="text/javascript">
+        var permission = {
+            deo: {
+                show: ['thana', 'school'],
+                hide: []
+            },
+            ah: {
+                show: ['thana'],
+                hide: ['school']
+            },
+            hm: {
+                show: ['school'],
+                hide: ['thana']
+            }
+        };
+        $('#role').select(function () {
+            var role = $('#role :selected').text();
+            alert(role);
+            if (permission.hasOwnProperty(role)) {
+                var tobeShown = permission[role].show;
+                var tobeHiden = permission[role].hide;
+
+                for(var i = 0; i < tobeShown.length; i++){
+                    var id = tobeShown[i];
+                    $('#' + id).style.display = 'block';
+                }
+
+                for(var i = 0; i < tobeHiden.length; i++){
+                    var id = tobeHiden[i];
+                    $('#' + id).style.display = 'none';
+                }
+            }
+        });
+    </script>
+@endsection

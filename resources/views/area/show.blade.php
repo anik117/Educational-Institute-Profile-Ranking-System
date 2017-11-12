@@ -24,7 +24,9 @@
       <!-- List group -->
       <ul class="list-group">
         @foreach($schools as $school)
-          <li class="list-group-item"><a href="{{ url('school/' . $school->id) }}">{{ $school->name }}</a></li>
+          {{-- @if() --}}
+            <li class="list-group-item"><a href="{{ url('school/' . $school->id) }}">{{ $school->name }}</a></li>
+          {{-- @endif --}}
         @endforeach
       </ul>
     </div>
