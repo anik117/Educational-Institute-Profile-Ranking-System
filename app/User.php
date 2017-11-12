@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
+use Mail;
+// use Illuminate\Auth\Passwords\TokenRepositoryInterfac;
 
 class User extends Authenticatable
 {
@@ -34,6 +36,23 @@ class User extends Authenticatable
         if($value){
             $this->attributes['password']= app('hash')->needsRehash($value)?Hash::make($value):$value;
         }
+    }
+    // public static function generatePassword()
+    // {
+    //   // Generate random string and encrypt it. 
+    //   return bcrypt(str_random(35));
+    // }
+
+    public static function sendWelcomeEmail($user)
+    {
+      // Generate a new reset password token
+      $token = app('auth.password.broker')->createToken($user);
+      
+      // Send email
+      Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+        $m->from('schoolrankingbd@gmail.com', 'School Ranking BD');
+        $m->to($user->email, $user->name)->subject('Welcome to the system');
+      });
     }
 
     public function areas()

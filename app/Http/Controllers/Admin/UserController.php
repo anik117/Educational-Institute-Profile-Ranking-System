@@ -2,12 +2,16 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ResetsPasswords;
 use App\User;
 use App\Area;
 use App\School;
 use Illuminate\Http\Request;
+use Validator;
+use Redirect;
 class UserController extends Controller
 {
+    use ResetsPasswords;
     /**
      * Display a listing of the resource.
      *
@@ -47,8 +51,31 @@ class UserController extends Controller
         
         $requestData = $request->except('roles');
         $roles=$request->roles;
+        
         $user =  User::create($requestData);
+
+        //   $validator = Validator::make($request->all(), [
+        //     'name'  => 'required|max:255',
+        //     'email' => 'required|email|unique:users',
+        // ]);
+
+        // // If validator fails, short circut and redirect with errors
+        // if($validator->fails()){
+        // return back()
+        //     ->withErrors($validator)
+        //     ->withInput();
+        // }
+
+        // //generate a password for the new users
+        // $pw = User::generatePassword();
+        
+        // $user = new User;
+        // $user->name = $request->input('name');
+        // $user->email = $request->input('email');
+        // $user->password = $pw;
+        // $user->save();
         $user->assignRole($roles);
+        User::sendWelcomeEmail($user);
         return redirect('admin/user')->with('flash_message', 'User added!');
     }
     /**
