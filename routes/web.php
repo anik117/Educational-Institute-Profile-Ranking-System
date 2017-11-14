@@ -40,3 +40,4 @@ Route::get('/area', 'AreaShowController@index');
 
 Route::get('/school/{id}', 'SchoolShowController@show');
 Route::get('/school', 'SchoolShowController@index');
+Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');

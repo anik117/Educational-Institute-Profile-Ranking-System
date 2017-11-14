@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class School extends Model
+class SchoolRankingCriterium extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'schools';
+    protected $table = 'school_ranking_criterias';
 
     /**
     * The database primary key value.
@@ -25,16 +25,12 @@ class School extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'thana', 'area_id'];
+    protected $fillable = ['pass', 'attendance', 'students', 'teachers', 'fee', 'class', 'school_id'];
 
-    public function area()
+    public function school()
     {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(School::class);
     }
 
-    public function ranking()
-    {
-        return $this->hasOne(SchoolRankingCriterium::class);
-    }
     
 }
