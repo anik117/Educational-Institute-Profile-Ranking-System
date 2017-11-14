@@ -7,7 +7,7 @@
 
             <div class="col-md-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading">SchoolRankingCriterium {{ $schoolrankingcriterium->id }}</div>
+                    <div class="panel-heading"><h5>{{ $schoolrankingcriterium->id }}</h5></div>
                     <div class="panel-body">
 
                         <a href="{{ url('/admin/school-ranking-criteria') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
