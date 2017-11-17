@@ -30,14 +30,22 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Pass</th><th>Attendance</th><th>Students</th><th>Actions</th>
+                                        <th>Class</th>
+                                        <th>Students</th>                                        
+                                        <th>Pass</th>
+                                        <th>Attendance</th>
+                                        <th>Fee</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($schoolrankingcriteria as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->pass }}</td><td>{{ $item->attendance }}</td><td>{{ $item->students }}</td>
+                                        <td>{{ $item->class }}</td>
+                                        <td>{{ $item->students }}</td>
+                                        <td>{{ $item->pass }}</td>
+                                        <td>{{ $item->attendance }}</td>                                      
+                                        <td>{{ $item->fee }}</td>
                                         <td>
                                             <a href="{{ url('/admin/school-ranking-criteria/' . $item->id) }}" title="View SchoolRankingCriterium"><button class="btn btn-info btn-md"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/school-ranking-criteria/' . $item->id . '/edit') }}" title="Edit SchoolRankingCriterium"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

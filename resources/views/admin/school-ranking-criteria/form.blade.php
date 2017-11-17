@@ -1,7 +1,7 @@
 <div class="form-group {{ $errors->has('class') ? 'has-error' : ''}}">
     {!! Form::label('class', 'Class', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('class', json_decode('{"one": "One", "two":"Two"}', true), null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+        {!! Form::select('class', json_decode('{"one": "One", "two":"Two", "three":"Three", "four": "Four", "five":"Five", "six":"Six", "seven": "Seven", "eight":"Eight", "nine":"Nine", "ten":"Ten"}', true), null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('class', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -23,13 +23,15 @@
         {!! Form::number('students', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('students', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('teachers') ? 'has-error' : ''}}">
+</div>
+{{-- <div class="form-group {{ $errors->has('teachers') ? 'has-error' : ''}}">
     {!! Form::label('teachers', 'Teachers', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::number('teachers', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('teachers', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('fee') ? 'has-error' : ''}}">
+</div> --}}
+<div class="form-group {{ $errors->has('fee') ? 'has-error' : ''}}">
     {!! Form::label('fee', 'Fee', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::number('fee', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}

@@ -24,6 +24,7 @@ Route::group(['middleware'=>['role:deo', 'auth']],function(){
 	Route::resource('admin/user', 'Admin\\UserController');
 	Route::resource('admin/area', 'Admin\\AreaController');
 	Route::resource('admin/school', 'Admin\\SchoolController');
+	Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');
 });
 
 Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
@@ -40,4 +41,3 @@ Route::get('/area', 'AreaShowController@index');
 
 Route::get('/school/{id}', 'SchoolShowController@show');
 Route::get('/school', 'SchoolShowController@index');
-Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');

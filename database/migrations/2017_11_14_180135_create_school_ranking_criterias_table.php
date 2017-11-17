@@ -14,13 +14,13 @@ class CreateSchoolRankingCriteriasTable extends Migration
     {
         Schema::create('school_ranking_criterias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pass');
-            $table->integer('attendance');
+            $table->float('pass');
+            $table->float('attendance');
             $table->integer('students');
-            $table->integer('teachers');
+            // $table->integer('teachers');
             $table->integer('fee');
             $table->string('class');
-            $table->integer('school_id');
+            $table->integer('school_id')->nullable();
             $table->timestamps();
         });
     }
