@@ -65,6 +65,16 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
+
+                                <tbody>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        <td>{{ $total_students }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{{ $total_fees }}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <div class="pagination-wrapper"> {!! $schoolrankingcriteria->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>

@@ -20,6 +20,10 @@ class SchoolRankingCriteriaController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
+        $results = SchoolRankingCriterium::all();
+        $total_students = $results->sum('students');
+        $total_fees = $results->sum('fee');
+
         if (!empty($keyword)) {
             $schoolrankingcriteria = SchoolRankingCriterium::where('pass', 'LIKE', "%$keyword%")
                 ->orWhere('attendance', 'LIKE', "%$keyword%")
@@ -32,7 +36,8 @@ class SchoolRankingCriteriaController extends Controller
             $schoolrankingcriteria = SchoolRankingCriterium::paginate($perPage);
         }
 
-        return view('admin.school-ranking-criteria.index', compact('schoolrankingcriteria'));
+        return view('admin.school-ranking-criteria.index',
+               compact('schoolrankingcriteria', 'results', 'total_students', 'total_fees'));
     }
 
     /**
