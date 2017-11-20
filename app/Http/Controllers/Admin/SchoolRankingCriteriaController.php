@@ -23,12 +23,14 @@ class SchoolRankingCriteriaController extends Controller
         $results = SchoolRankingCriterium::all();
         $total_students = $results->sum('students');
         $total_fees = $results->sum('fee');
+        $total_pass = $results->sum('pass');
+        $total_attendance = $results->sum('attendance');
 
         if (!empty($keyword)) {
             $schoolrankingcriteria = SchoolRankingCriterium::where('pass', 'LIKE', "%$keyword%")
                 ->orWhere('attendance', 'LIKE', "%$keyword%")
                 ->orWhere('students', 'LIKE', "%$keyword%")
-                ->orWhere('teachers', 'LIKE', "%$keyword%")
+                // ->orWhere('teachers', 'LIKE', "%$keyword%")
                 ->orWhere('fee', 'LIKE', "%$keyword%")
                 ->orWhere('class', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
@@ -37,7 +39,7 @@ class SchoolRankingCriteriaController extends Controller
         }
 
         return view('admin.school-ranking-criteria.index',
-               compact('schoolrankingcriteria', 'results', 'total_students', 'total_fees'));
+               compact('schoolrankingcriteria', 'results', 'total_students', 'total_fees', 'total_pass', 'total_attendance'));
     }
 
     /**

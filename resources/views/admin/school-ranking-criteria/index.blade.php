@@ -47,8 +47,8 @@
                                         <td>{{ $item->attendance }}</td>                                      
                                         <td>{{ $item->fee }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/school-ranking-criteria/' . $item->id) }}" title="View SchoolRankingCriterium"><button class="btn btn-info btn-md"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/school-ranking-criteria/' . $item->id . '/edit') }}" title="Edit SchoolRankingCriterium"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/school-ranking-criteria/' . $item->id) }}" title="View SchoolRankingCriterium"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/school-ranking-criteria/' . $item->id . '/edit') }}" title="Edit SchoolRankingCriterium"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
                                                 'url' => ['/admin/school-ranking-criteria', $item->id],
@@ -56,7 +56,7 @@
                                             ]) !!}
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                                         'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-md',
+                                                        'class' => 'btn btn-danger btn-sm',
                                                         'title' => 'Delete SchoolRankingCriterium',
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
@@ -70,8 +70,8 @@
                                     <tr>
                                         <td><b>Total</b></td>
                                         <td>{{ $total_students }}</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $total_pass/count($results) }}<br>(<small>Average</small>)</td>
+                                        <td>{{ $total_attendance/count($results) }}<br>(<small>Average</small>)</td>
                                         <td>{{ $total_fees }}</td>
                                     </tr>
                                 </tbody>
