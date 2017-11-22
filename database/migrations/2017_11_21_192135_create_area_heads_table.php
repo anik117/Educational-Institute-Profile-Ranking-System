@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolsTable extends Migration
+class CreateAreaHeadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +13,12 @@ class CreateSchoolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('schools', function (Blueprint $table) {
+        Schema::create('area_heads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('code')->unique();
-            $table->string('website')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone', 11)->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->ondelete('cascade');
             $table->integer('area_id')->unsigned();
             $table->foreign('area_id')
                 ->references('id')->on('areas')
@@ -34,6 +34,6 @@ class CreateSchoolsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('schools');
+        Schema::dropIfExists('area_heads');
     }
 }

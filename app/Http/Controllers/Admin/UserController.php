@@ -35,9 +35,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        $areas=Area::get()->pluck('thana','thana');
-        $schools=School::get()->pluck('name','name');
-        return view('admin.user.create', compact('areas', 'schools'));
+        // $areas=Area::get()->pluck('thana','thana');
+        // $schools=School::get()->pluck('name','name');
+        return view('admin.user.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -75,7 +75,7 @@ class UserController extends Controller
         // $user->password = $pw;
         // $user->save();
         $user->assignRole($roles);
-        User::sendWelcomeEmail($user);
+        // User::sendWelcomeEmail($user);
         return redirect('admin/user')->with('flash_message', 'User added!');
     }
     /**

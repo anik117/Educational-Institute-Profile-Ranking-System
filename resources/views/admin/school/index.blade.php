@@ -39,7 +39,7 @@
                                 @foreach($school as $item)
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->code }}</td><td>{{ $item->thana }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->code }}</td><td>{{ $item->area->thana }}</td>
                                         <td>
                                             <a href="{{ url('/admin/school/' . $item->id) }}" title="View School"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/school/' . $item->id . '/edit') }}" title="Edit School"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

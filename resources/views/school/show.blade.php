@@ -15,7 +15,7 @@
         <li class="list-group-item">Website: <a href="">{{ $school->website }}</a></li>
         <li class="list-group-item">Email: {{ $school->email }}</li>
         <li class="list-group-item">Phone: {{ $school->phone }}</li>
-        <li class="list-group-item">Area (thana): {{ $school->thana }}</li>
+        <li class="list-group-item">Area (thana): {{ $school->area->thana }}</li>
       </ul>
     </div>
 @endsection

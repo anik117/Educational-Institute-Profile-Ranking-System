@@ -39,6 +39,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @if(count($schoolrankingcriteria)>0)
                                 @foreach($schoolrankingcriteria as $item)
                                     <tr>
                                         <td>{{ $item->class }}</td>
@@ -64,19 +65,13 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                </tbody>
+                                <tr>
+                                    <td>{{$total_fees}}</td>
+                                </tr>
 
-                                <tbody>
-                                    <tr>
-                                        <td><b>Total</b></td>
-                                        <td>{{ $total_students }}</td>
-                                        <td>{{ $total_pass/count($results) }}<br>(<small>Average</small>)</td>
-                                        <td>{{ $total_attendance/count($results) }}<br>(<small>Average</small>)</td>
-                                        <td>{{ $total_fees }}</td>
-                                    </tr>
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $schoolrankingcriteria->appends(['search' => Request::get('search')])->render() !!} </div>
+                            @endif
                         </div>
 
                     </div>

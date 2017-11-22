@@ -45,7 +45,7 @@
                                         <td> {{ $school->code }} </td></tr>
                                     <tr>
                                         <th> Website </th>
-                                        <td> {{ $school->website }} </td>
+                                        <td> <a href="http://{{ $school->website }}">{{ $school->website }}</a></td>
                                     </tr>
                                     <tr>
                                         <th> Email </th>
@@ -57,7 +57,7 @@
                                     </tr>
                                     <tr>
                                         <th> Area (thana) </th>
-                                        <td> {{ $school->thana }} </td>
+                                        <td> {{ $school->area->thana }} </td>
                                     </tr>
                                 </tbody>
                             </table>

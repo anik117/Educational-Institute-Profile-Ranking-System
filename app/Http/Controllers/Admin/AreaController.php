@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Area;
+use App\User;
+use App\AreaHead;
 use Illuminate\Http\Request;
 
 class AreaController extends Controller
@@ -38,7 +40,8 @@ class AreaController extends Controller
      */
     public function create()
     {
-        return view('admin.area.create');
+        $ah = User::role('ah')->get()->pluck('name','id');
+        return view('admin.area.create', compact('ah'));
     }
 
     /**
@@ -51,11 +54,16 @@ class AreaController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
-        
-        // Area::create($requestData);
+        $area = new Area;
+        $area->district = $request->district;
+        $area->thana = $request->thana;
+        $area->save();
 
-        auth()->user()->areas()->create($requestData);
+        $areahead = new AreaHead;
+        $areahead->user_id = $request->ah;
+        $areahead->area_id = $area->id;
+
+        $areahead->save();
 
         return redirect('admin/area')->with('flash_message', 'Area added!');
     }
@@ -83,9 +91,10 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-        $area = Area::findOrFail($id);
-
-        return view('admin.area.edit', compact('area'));
+        $area = Area::where('id', $id)->get()->first();
+        $ah = AreaHead::where('area_id', $id)->first()->user;
+        $ah = $ah->pluck('name','id');
+        return view('admin.area.edit', compact('area', 'ah'));
     }
 
     /**
@@ -99,10 +108,14 @@ class AreaController extends Controller
     public function update(Request $request, $id)
     {
         
-        $requestData = $request->all();
-        
-        $area = Area::findOrFail($id);
-        $area->update($requestData);
+        $area = Area::where('id', $id)->get()->first();
+        $area->district = $request->district;
+        $area->thana = $request->thana;
+        $area->save();
+
+        $areahead = AreaHead::where('area_id', $id)->first();
+        $areahead->user_id = $request->ah;
+        $areahead->save();
 
         return redirect('admin/area')->with('flash_message', 'Area updated!');
     }

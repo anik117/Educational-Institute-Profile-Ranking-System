@@ -25,16 +25,21 @@ class School extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'thana', 'area_id'];
+    protected $fillable = ['name', 'code', 'website', 'email', 'phone', 'area_id'];
 
     public function area()
     {
         return $this->belongsTo(Area::class);
     }
 
+    public function headmaster()
+    {
+        return $this->hasOne(Headmaster::class);
+    }
+
     public function ranking()
     {
-        return $this->hasOne(SchoolRankingCriterium::class);
+        return $this->hasMany(SchoolRankingCriterium::class);
     }
     
 }

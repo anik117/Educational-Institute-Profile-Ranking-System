@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\School;
 use App\Area;
+use App\User;
+use App\Headmaster;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
@@ -27,12 +29,12 @@ class SchoolController extends Controller
                 ->orWhere('website', 'LIKE', "%$keyword%")
                 ->orWhere('email', 'LIKE', "%$keyword%")
                 ->orWhere('phone', 'LIKE', "%$keyword%")
-                ->orWhere('thana', 'LIKE', "%$keyword%")
+                // ->orWhere('thana', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
             $school = School::paginate($perPage);
         }
-
+        // dd($school);
         return view('admin.school.index', compact('school'));
     }
 
@@ -43,8 +45,9 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        $areas=Area::get()->pluck('thana','thana');
-        return view('admin.school.create', compact('areas'));
+        $areas = Area::get()->pluck('thana','id');
+        $headmasters = User::role('hm')->get()->pluck('name', 'id'); 
+        return view('admin.school.create', compact('areas','headmasters'));
     }
 
     /**
@@ -57,9 +60,19 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
-        
-        School::create($requestData);
+        $school = new School;
+        $school->name = $request->name;
+        $school->code = $request->code;
+        $school->website = $request->website;
+        $school->email = $request->email;
+        $school->phone = $request->phone;
+        $school->area_id = $request->area;
+        $school->save();
+
+        $headmaster = new Headmaster;
+        $headmaster->user_id = $request->headmaster;
+        $headmaster->school_id = $school->id;
+        $headmaster->save();
 
         return redirect('admin/school')->with('flash_message', 'School added!');
     }
@@ -89,8 +102,9 @@ class SchoolController extends Controller
     {
         $school = School::findOrFail($id);
         $areas=Area::get()->pluck('thana','thana');
+        $headmasters = User::role('hm')->get()->pluck('name', 'id');
 
-        return view('admin.school.edit', compact('school', 'areas'));
+        return view('admin.school.edit', compact('school', 'areas', 'headmasters'));
     }
 
     /**

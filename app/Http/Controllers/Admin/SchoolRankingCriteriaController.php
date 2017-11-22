@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Headmaster;
 use App\SchoolRankingCriterium;
 use Illuminate\Http\Request;
 
@@ -20,26 +20,22 @@ class SchoolRankingCriteriaController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        $results = SchoolRankingCriterium::all();
-        $total_students = $results->sum('students');
-        $total_fees = $results->sum('fee');
-        $total_pass = $results->sum('pass');
-        $total_attendance = $results->sum('attendance');
+        $total_students = 0;
+        $total_fees = 0;
+        $total_pass = 0;
+        $total_attendance = 0;
 
-        if (!empty($keyword)) {
-            $schoolrankingcriteria = SchoolRankingCriterium::where('pass', 'LIKE', "%$keyword%")
-                ->orWhere('attendance', 'LIKE', "%$keyword%")
-                ->orWhere('students', 'LIKE', "%$keyword%")
-                // ->orWhere('teachers', 'LIKE', "%$keyword%")
-                ->orWhere('fee', 'LIKE', "%$keyword%")
-                ->orWhere('class', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
-        } else {
-            $schoolrankingcriteria = SchoolRankingCriterium::paginate($perPage);
+        $school_id = Headmaster::where('user_id',auth()->user()->id)->first()->school->id;
+        $schoolrankingcriteria = SchoolRankingCriterium::where('school_id', $school_id)->get();
+        if(count($schoolrankingcriteria)>0){
+            $total_students = $schoolrankingcriteria->sum('students');
+            $total_fees = $schoolrankingcriteria->sum('fee')/count($schoolrankingcriteria);
+            $total_pass = $schoolrankingcriteria->sum('pass');
+            $total_attendance = $schoolrankingcriteria->sum('attendance');
         }
 
         return view('admin.school-ranking-criteria.index',
-               compact('schoolrankingcriteria', 'results', 'total_students', 'total_fees', 'total_pass', 'total_attendance'));
+               compact('schoolrankingcriteria', 'total_students', 'total_fees', 'total_pass', 'total_attendance'));
     }
 
     /**
@@ -62,9 +58,14 @@ class SchoolRankingCriteriaController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
-        
-        SchoolRankingCriterium::create($requestData);
+        $schoolrankingcriterium = new SchoolRankingCriterium;
+        $schoolrankingcriterium->school_id = Headmaster::where('user_id',auth()->user()->id)->first()->school->id;
+        $schoolrankingcriterium->class = $request->class;
+        $schoolrankingcriterium->pass = $request->pass;
+        $schoolrankingcriterium->attendance = $request->attendance;
+        $schoolrankingcriterium->students = $request->students;
+        $schoolrankingcriterium->fee = $request->fee;
+        $schoolrankingcriterium->save();
 
         return redirect('admin/school-ranking-criteria')->with('flash_message', 'SchoolRankingCriterium added!');
     }
@@ -79,7 +80,7 @@ class SchoolRankingCriteriaController extends Controller
     public function show($id)
     {
         $schoolrankingcriterium = SchoolRankingCriterium::findOrFail($id);
-
+        
         return view('admin.school-ranking-criteria.show', compact('schoolrankingcriterium'));
     }
 
