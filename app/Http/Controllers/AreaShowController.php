@@ -15,7 +15,7 @@ class AreaShowController extends Controller
 
     public function show($id){
     	$area = Area::find($id);
-    	$schools = School::all()->where('thana', $area->thana);
+    	$schools = School::all()->where('area_id', $id);
     	return view('area.show',compact('area', 'schools'));
     }
 }
