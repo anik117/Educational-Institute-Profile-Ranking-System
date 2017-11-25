@@ -13,9 +13,9 @@
 
 // Route::get('/', 'PagesController@index');
 Route::get('/', ['uses' => 'PagesController@index', 'as' => 'home']);
+Route::get('/about', ['uses' => 'PagesController@about', 'as' => 'about']);
 
 Auth::routes();
-
 
 Route::group(['middleware'=>['role:deo','auth']],function(){
 	Route::view('/admin','admin.dashboard');

@@ -35,9 +35,17 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $area->id }}</td>
+                                        <th>ID</th>
+                                        <td>{{ $area->id }}</td>
                                     </tr>
-                                    <tr><th> District </th><td> {{ $area->district }} </td></tr><tr><th> Thana </th><td> {{ $area->thana }} </td></tr>
+                                    <tr>
+                                        <th> District </th>
+                                        <td> {{ $area->district }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Thana </th>
+                                        <td> {{ $area->thana }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
