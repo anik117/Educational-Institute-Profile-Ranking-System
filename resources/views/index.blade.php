@@ -15,7 +15,7 @@
 						-->
 						<div class="fh5co-center-position">
 							<h2 class="animate-box">Ranks School From Different Areas</h2>
-							<p class="animate-box"><a href="/about" target="_blank" class="btn btn-primary">Learn More</a></p>
+							<p class="animate-box"><a href="/about" class="btn btn-primary">Learn More</a></p>
 						</div>
 					</div>
 				</div>
@@ -63,15 +63,15 @@
 		<section id="fh5co-features-2" style="background: #fff">
 			<div class="container">
 				<div class="col-md-12">
-					<h2 class="fh5co-lead animate-box text-center">List of Ranking</h2>
+					<h2 class="fh5co-lead text-center">List of Ranking</h2>
 
 					@foreach ($schools as $school)
 					<div class="fh5co-feature">
-						<div class="fh5co-icon animate-box">
+						<div class="fh5co-icon">
 							<i>{{$school->id}}.</i>
 						</div>
 						<a href="/school/{{$school->id}}" target="_blank">
-							<div class="fh5co-text animate-box">
+							<div class="fh5co-text">
 								<h3>{{$school->name}}</h3>
 								<h4>{{ $school->area->thana }}, {{ $school->area->district }}</h4>
 							</div>
@@ -79,7 +79,7 @@
 					</div>
 					@endforeach
 
-					<div class="fh5co-btn-action animate-box">
+					<div class="fh5co-btn-action">
 						<a href="#" class="btn btn-primary">More Rankings</a>
 					</div>
 

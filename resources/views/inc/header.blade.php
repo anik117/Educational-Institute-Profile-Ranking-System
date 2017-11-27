@@ -2,8 +2,8 @@
 	<div class="container">
 		<nav role="navigation">
 			<ul class="pull-left left-menu">
-				<li><a href="/area" target="_blank">Area</a></li>
-				<li><a href="/school" target="_blank">School</a></li>
+				<li><a href="/area">Area</a></li>
+				<li><a href="/school">School</a></li>
 				<li><a href="/about">About</a></li>
 			</ul>
 			<h1 id="fh5co-logo"><a href="/">School Ranking System<span>.</span></a></h1>
@@ -14,7 +14,7 @@
 				@else
 				<li>
 				    @role('deo|ah|hm|sa')
-				        <a href="/dashboard" target="_blank">Dashboard</a>
+				        <a href="/dashboard">Dashboard</a>
 				    @endrole
 				</li>
 				<li class="fh5co-cta-btn">

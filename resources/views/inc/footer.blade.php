@@ -6,9 +6,9 @@
 				<div class="fh5co-footer-widget">
 					<h3>Company</h3>
 					<ul class="fh5co-links">
-						<li><a href="/about" target="_blank">About Us</a></li>
-						<li><a href="/area" target="_blank">Areas</a></li>
-						<li><a href="/school" target="_blank">Schools</a></li>
+						<li><a href="/about">About Us</a></li>
+						<li><a href="/area">Areas</a></li>
+						<li><a href="/school">Schools</a></li>
 					</ul>
 				</div>
 			</div>

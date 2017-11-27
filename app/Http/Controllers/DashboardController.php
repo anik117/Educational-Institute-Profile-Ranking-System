@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Area;
+use App\School;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -37,6 +39,8 @@ class DashboardController extends Controller
 
     public function adminDashboard()
     {
-        return view('admin.dashboard');
+        $areas = Area::all();
+        $schools = School::all();
+        return view('admin.dashboard', compact('areas', 'schools'));
     }
 }
