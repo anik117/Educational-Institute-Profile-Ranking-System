@@ -3007,8 +3007,8 @@ table {
 }
 
 caption {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: #bbb;
   text-align: left;
 }
@@ -3029,7 +3029,7 @@ th {
 .table > tbody > tr > td,
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
-  padding: 8px;
+  padding: 10px;
   line-height: 1.6;
   vertical-align: top;
   border-top: 1px solid #ddd;

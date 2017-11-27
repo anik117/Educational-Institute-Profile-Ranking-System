@@ -1,7 +1,7 @@
 <div class="col-md-3">
-	<div class="panel panel-default panel-flush">
+	<div class="panel panel-primary panel-flush">
 	    <div class="panel-heading">
-	    	<h4>Sidebar</h4>
+	    	<h4 style="color: #fff">Sidebar</h4>
 	  	</div>
 	    <div class="panel-body">
         <ul class="nav" role="tablist">
