@@ -63,7 +63,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="">Profile</a>
+                                <a href="/profile/{{ Auth::user()->id }}">Profile</a>
                             </li>
                             <li>
                                 @role('deo|ah|hm|sa')

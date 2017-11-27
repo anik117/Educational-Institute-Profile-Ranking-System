@@ -45,6 +45,7 @@ Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
 
 
 Route::get('/dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard']);
+Route::get('/profile/{id}', ['uses' => 'ProfileController@index', 'as' => 'profile']);
 
 Route::get('/area/{id}', 'AreaShowController@show');
 Route::get('/area', 'AreaShowController@index');
