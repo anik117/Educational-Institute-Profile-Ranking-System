@@ -12,9 +12,11 @@
 						<div class="row">
 							<div class="col-md-2">
 								<p><b>Email</b></p>
+								<p><b>Role</b></p>
 							</div>
 							<div class="col-md-10">
 								<p>{{ $user->email }}</p>
+								<p>{{ $user->roles->implode('name', ', ') }}</p>
 							</div>
 						</div>
 					</div>
