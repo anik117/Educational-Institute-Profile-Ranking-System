@@ -43,11 +43,11 @@
 
 				<div class="row">
 
-					@foreach ($schools as $school)
+					@foreach ($schools as $index => $school)
 					<div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
 						<a href="/school/{{$school->id}}" target="_blank" class="fh5co-project-item">
 							<div class="fh5co-text">
-								<h1 class="text-center">{{ $school->id }}.</h1>
+								<h1 class="text-center">{{ $index +1 }}.</h1>
 								<h2>{{ $school->name }}</h2>
 								<p>{{ $school->area->thana }}, {{ $school->area->district }}</p>
 							</div>
@@ -65,10 +65,10 @@
 				<div class="col-md-12">
 					<h2 class="fh5co-lead text-center">List of Ranking</h2>
 
-					@foreach ($schools as $school)
+					@foreach ($schools as $index => $school)
 					<div class="fh5co-feature">
 						<div class="fh5co-icon">
-							<i>{{$school->id}}.</i>
+							<i>{{ $index +1 }}.</i>
 						</div>
 						<a href="/school/{{$school->id}}" target="_blank">
 							<div class="fh5co-text">
