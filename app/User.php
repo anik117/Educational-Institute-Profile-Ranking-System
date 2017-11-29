@@ -31,6 +31,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function headmaster(){
+        return $this->hasOne(Headmaster::class);
+    }
+
+    public function areahead(){
+        return $this->hasOne(AreaHead::class);
+    }
+
     public function setPasswordAttribute($value)
     {
         if($value){

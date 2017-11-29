@@ -10,10 +10,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>User</h4></div>
                     <div class="panel-body">
+                        @hasanyrole('deo|ah')
                         <a href="{{ url('/admin/user/create') }}" class="btn btn-success btn-md" title="Add New user">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
-
+                        @endhasanyrole
+                        
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/user', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">

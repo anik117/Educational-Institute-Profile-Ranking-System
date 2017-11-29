@@ -8,7 +8,7 @@ use App\Area;
 
 class AreaHead extends Model
 {
-    public function areas()
+    public function area()
     {
         return $this->belongsTo(Area::class);
     }

@@ -46,6 +46,18 @@
                                         <th> Role </th>
                                         <td> {{ $user->roles->implode('name', ', ') }} </td>
                                     </tr>
+                                    @if($user->roles->implode('name', ', ') == 'hm')
+                                        <tr>
+                                            <th>School</th>
+                                            <td>{{$user->headmaster->school->name}}</td>
+                                        </tr>
+                                    @endif
+                                    @if($user->roles->implode('name', ', ') == 'ah')
+                                        <tr>
+                                            <th>Area</th>
+                                            <td>{{ $user->areahead->area->thana }}</td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
