@@ -11,6 +11,7 @@
                     <div class="panel-body">
 
                         <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        @hasanyrole('deo|ah')  
                         <a href="{{ url('/admin/user/' . $user->id . '/edit') }}" title="Edit user"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
@@ -24,6 +25,7 @@
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
                         {!! Form::close() !!}
+                        @endhasanyrole
                         <br/>
                         <br/>
 

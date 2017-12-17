@@ -10,11 +10,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>School</h4></div>
                     <div class="panel-body">
-                        @can('add school')
+                        @role('ah')
                             <a href="{{ url('/admin/school/create') }}" class="btn btn-success btn-md" title="Add New School">
                                 <i class="fa fa-plus" aria-hidden="true"></i> Add New
                             </a>
-                        @endcan
+                        @endrole
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/school', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
@@ -42,7 +42,10 @@
                                         <td>{{ $item->name }}</td><td>{{ $item->code }}</td><td>{{ $item->area->thana }}</td>
                                         <td>
                                             <a href="{{ url('/admin/school/' . $item->id) }}" title="View School"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/school/' . $item->id . '/edit') }}" title="Edit School"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            @can('edit school')
+                                                <a href="{{ url('/admin/school/' . $item->id . '/edit') }}" title="Edit School"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            @endcan
+
                                             @can('delete school')
                                                 {!! Form::open([
                                                     'method'=>'DELETE',

@@ -10,11 +10,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4>Area</h4></div>
                     <div class="panel-body">
-                        @can('add area')
+                        @role('deo')
                             <a href="{{ url('/admin/area/create') }}" class="btn btn-success btn-md" title="Add New Area">
                                 <i class="fa fa-plus" aria-hidden="true"></i> Add New
                             </a>
-                        @endcan
+                        @endrole
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/area', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
@@ -42,9 +42,11 @@
                                         <td>{{ $item->district }}</td><td>{{ $item->thana }}</td>
                                         <td>
                                             <a href="{{ url('/admin/area/' . $item->id) }}" title="View Area"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            
                                             @can('edit area')
                                                 <a href="{{ url('/admin/area/' . $item->id . '/edit') }}" title="Edit Area"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             @endcan
+
                                             @can('delete area')
                                                 {!! Form::open([
                                                     'method'=>'DELETE',

@@ -11,7 +11,10 @@
                     <div class="panel-body">
 
                         <a href="{{ url('/admin/school') }}" title="Back"><button class="btn btn-default btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+
+                        @can('edit school')
                         <a href="{{ url('/admin/school/' . $school->id . '/edit') }}" title="Edit School"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        @endcan
                         @can('delete school')
                             {!! Form::open([
                                 'method'=>'DELETE',

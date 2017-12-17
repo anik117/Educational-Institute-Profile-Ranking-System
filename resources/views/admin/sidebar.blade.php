@@ -33,7 +33,9 @@
                 <a href="{{ url('/admin/school')}}"> School</a>
             </li>
             <li role="presentation">
+                @role('hm')
                 <a href="{{ url('/admin/school-ranking-criteria')}}"> School Ranking Criteria</a>
+                @endrole
             </li>
         </ul>
 	    </div>

@@ -48,7 +48,8 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->roles->implode('name', ', ') }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/user/' . $item->id) }}" title="View user"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>                                     
+                                            <a href="{{ url('/admin/user/' . $item->id) }}" title="View user"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            @hasanyrole('deo|ah')                                     
                                             <a href="{{ url('/admin/user/' . $item->id . '/edit') }}" title="Edit user"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
@@ -62,6 +63,7 @@
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}
+                                            @endhasanyrole
                                         </td>
                                     </tr>
                                 @endforeach
