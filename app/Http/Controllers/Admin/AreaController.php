@@ -53,6 +53,10 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
+        $area = $request->validate([
+          'district' => 'required|alpha',
+          'thana'=> 'required|alpha',
+        ]);
         
         $area = new Area;
         $area->district = $request->district;

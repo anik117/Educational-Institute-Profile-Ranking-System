@@ -19,7 +19,7 @@
 </div><div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
     {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('email', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+        {!! Form::email('email', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">

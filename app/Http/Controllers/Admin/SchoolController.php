@@ -59,7 +59,15 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $school = $request->validate([
+          'name' => 'required|string',
+          'code'=> 'required|numeric|digits:5',
+          'website'=> 'url',
+          'email'=> 'required|string|email|max:255|unique:users',
+          'phone'=> 'required|digits:11|regex:/^(?:\+?88)?01[15-9]\d{8}$/',
+          'area_id'=> 'required'
+        ]);
+
         $school = new School;
         $school->name = $request->name;
         $school->code = $request->code;

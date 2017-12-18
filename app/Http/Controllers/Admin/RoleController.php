@@ -51,7 +51,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $role = $request->validate([
+          'name' => 'required|alpha'
+        ]);
+
         $requestData = $request->except('permissions');
         $permissions=$request->permissions;
                 

@@ -66,9 +66,12 @@
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td>{{$total_fees}}</td>
+                                    <td><b>Average Total</b></td>
+                                    <td>{{ $total_students }}</td>
+                                    <td>{{ round($total_pass, 2) }}</td>
+                                    <td>{{ round($total_attendance, 2) }}</td>
+                                    <td>{{ round($total_fees, 2) }}</td>
                                 </tr>
-
                                 </tbody>
                             </table>
                             @endif

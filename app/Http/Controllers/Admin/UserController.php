@@ -50,7 +50,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $user = $request->validate([
+          'name' => 'required|string',
+          'email'=> 'required|string|email|max:255|unique:users',
+          'password'=> 'required|string|min:6',
+          'roles'=> 'required'
+        ]);
+
         $requestData = $request->except('roles');
         $roles=$request->roles;
         

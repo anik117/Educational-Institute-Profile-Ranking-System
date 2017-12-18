@@ -13,14 +13,6 @@
                         <br />
                         <br />
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-
                         {!! Form::open(['url' => '/admin/area', 'class' => 'form-horizontal', 'files' => true]) !!}
 
                         @include ('admin.area.form')

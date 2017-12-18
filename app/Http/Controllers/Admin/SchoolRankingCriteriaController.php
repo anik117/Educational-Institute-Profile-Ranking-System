@@ -30,8 +30,8 @@ class SchoolRankingCriteriaController extends Controller
         if(count($schoolrankingcriteria)>0){
             $total_students = $schoolrankingcriteria->sum('students');
             $total_fees = $schoolrankingcriteria->sum('fee')/count($schoolrankingcriteria);
-            $total_pass = $schoolrankingcriteria->sum('pass');
-            $total_attendance = $schoolrankingcriteria->sum('attendance');
+            $total_pass = $schoolrankingcriteria->sum('pass')/count($schoolrankingcriteria);
+            $total_attendance = $schoolrankingcriteria->sum('attendance')/count($schoolrankingcriteria);
         }
 
         return view('admin.school-ranking-criteria.index',
@@ -57,7 +57,14 @@ class SchoolRankingCriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $schoolrankingcriterium = $request->validate([
+          'school_id' => 'required',
+          'class'=> 'required',
+          'pass'=> 'required|numeric|between:0,100',
+          'attendance'=> 'required|numeric|between:0,100',
+          'students'=> 'required|numeric|min:10',
+          'fee'=> 'required|numeric|min:20'
+        ]);
         $schoolrankingcriterium = new SchoolRankingCriterium;
         $schoolrankingcriterium->school_id = Headmaster::where('user_id',auth()->user()->id)->first()->school->id;
         $schoolrankingcriterium->class = $request->class;
