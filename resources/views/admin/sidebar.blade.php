@@ -10,7 +10,9 @@
             </li>
 
             <li role="presentation">
+                @role('deo|ah')
                 <a href="{{ url('/admin/user')}}"> User</a>
+                @endrole
             </li>
 
             <li role="presentation">

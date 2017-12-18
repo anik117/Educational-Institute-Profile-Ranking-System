@@ -22,7 +22,9 @@ class UserController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
         if (!empty($keyword)) {
+
             $user = User::where('name','LIKE',"%$keyword%")->paginate($perPage);
+
         } else {
             $user = User::paginate($perPage);
         }
@@ -75,7 +77,7 @@ class UserController extends Controller
         // $user->password = $pw;
         // $user->save();
         $user->assignRole($roles);
-        // User::sendWelcomeEmail($user);
+        User::sendWelcomeEmail($user);
         return redirect('admin/user')->with('flash_message', 'User added!');
     }
     /**

@@ -31,7 +31,7 @@
                             </div>
                             <div class="panel-body">
                                 <h3 class="text-center">
-                                    <a style="text-decoration: none; color: #000" href="/admin/area">3</a>
+                                    <a style="text-decoration: none; color: #000" href="/admin/area">2</a>
                                 </h3>
                             </div>
                         </div>
