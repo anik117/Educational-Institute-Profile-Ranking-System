@@ -39,6 +39,11 @@
                 <a href="{{ url('/admin/school-ranking-criteria')}}"> School Ranking Criteria</a>
                 @endrole
             </li>
+            <li role="presentation">
+                @role('deo')
+                <a href="{{ route('chart') }}"> Chart</a>
+                @endrole
+            </li>
         </ul>
 	    </div>
 	</div>

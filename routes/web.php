@@ -25,6 +25,7 @@ Route::group(['middleware'=>['role:deo','auth']],function(){
 	Route::resource('admin/area', 'Admin\\AreaController');
 	Route::resource('admin/school', 'Admin\\SchoolController');
 	Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');
+	Route::get('admin/chart', ['uses' => 'ChartController@chart', 'as' => 'chart']);
 });
 
 Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
