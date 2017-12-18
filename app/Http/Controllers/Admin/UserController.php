@@ -83,7 +83,7 @@ class UserController extends Controller
         // $user->password = $pw;
         // $user->save();
         $user->assignRole($roles);
-        User::sendWelcomeEmail($user);
+        User::sendWelcomeEmail($requestData);
         return redirect('admin/user')->with('flash_message', 'User added!');
     }
     /**

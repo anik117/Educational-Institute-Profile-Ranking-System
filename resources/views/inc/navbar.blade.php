@@ -66,6 +66,9 @@
                                 <a href="/profile/{{ Auth::user()->id }}">Profile</a>
                             </li>
                             <li>
+                                <a href="{{ route('change.password') }}">Change Password</a>
+                            </li>
+                            <li>
                                 @role('deo|ah|hm|sa')
                                     <a href="/admin">Admin Dashboard</a>
                                 @endrole

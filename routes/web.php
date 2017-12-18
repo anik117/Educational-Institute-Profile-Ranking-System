@@ -26,6 +26,8 @@ Route::group(['middleware'=>['role:deo','auth']],function(){
 	Route::resource('admin/school', 'Admin\\SchoolController');
 	Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');
 	Route::get('admin/chart', ['uses' => 'ChartController@chart', 'as' => 'chart']);
+	Route::get('change/password', ['uses' => 'ChangePasswordController@viewChangePassword', 'as' => 'change.password']);
+	Route::post('change/password', ['uses' => 'ChangePasswordController@changePassword', 'as' => 'change.password']);
 });
 
 Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
@@ -34,6 +36,8 @@ Route::group(['middleware'=>['role:deo|ah|hm', 'auth']],function(){
 	Route::resource('admin/area', 'Admin\\AreaController');
 	Route::resource('admin/school', 'Admin\\SchoolController');
 	Route::resource('admin/school-ranking-criteria', 'Admin\\SchoolRankingCriteriaController');
+	Route::get('change/password', ['uses' => 'ChangePasswordController@viewChangePassword', 'as' => 'change.password']);
+	Route::post('change/password', ['uses' => 'ChangePasswordController@changePassword', 'as' => 'change.password']);
 });
 
 // Route::group(['middleware'=>['role:hm', 'auth']],function(){

@@ -95,8 +95,7 @@ class AreaController extends Controller
     public function edit($id)
     {
         $area = Area::where('id', $id)->get()->first();
-        $ah = AreaHead::where('area_id', $id)->first()->user;
-        $ah = $ah->pluck('name','id');
+        $ah = User::role('ah')->get()->pluck('name','id');
         return view('admin.area.edit', compact('area', 'ah'));
     }
 

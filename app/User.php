@@ -54,12 +54,12 @@ class User extends Authenticatable
     public static function sendWelcomeEmail($user)
     {
       // Generate a new reset password token
-      $token = app('auth.password.broker')->createToken($user);
+      // $token = app('auth.password.broker')->createToken($user);
       
       // Send email
-      Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+      Mail::send('emails.welcome', ['user' => $user], function ($m) use ($user) {
         $m->from('schoolrankingbd@gmail.com', 'School Ranking BD');
-        $m->to($user->email, $user->name)->subject('Welcome to the system');
+        $m->to($user['email'], $user['name'])->subject('Welcome to the system');
       });
     }
 
