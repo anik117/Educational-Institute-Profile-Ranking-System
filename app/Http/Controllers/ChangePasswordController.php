@@ -12,14 +12,23 @@ class ChangePasswordController extends Controller
 		return view('admin.changePassword');
 	}
     public function changePassword(Request $request){
+    	$user = $request->validate([
+          'password'=> 'required|min:6',
+          'password_confirmation'=> 'required|min:6'
+        ]);
+
     	$user = User::where('email', auth()->user()->email)->first();
-    	if ($user->email == $request->email) {
-    		if(Hash::check($request->current_password, $user->password)){
-    			if($request->password == $request->password_confirmation){
-    				$user->password = bcrypt($request->password);
-    				$user->save();
-    			}
-    		}
+     	if(Hash::check($request->current_password, $user->password)){
+			if($request->password == $request->password_confirmation){
+				$user->password = bcrypt($request->password);
+				$user->save();
+			}
+			else{
+				return redirect('/change/password');
+			}
+    	}
+    	else{
+			return redirect('/change/password');
     	}
     	return redirect('/admin');
     }

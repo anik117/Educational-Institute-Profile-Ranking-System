@@ -9,6 +9,7 @@ use App\School;
 use App\Area;
 use App\User;
 use App\Headmaster;
+use App\AreaHead;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
@@ -23,6 +24,12 @@ class SchoolController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
+        if (auth()->user()->hasRole('ah')) {
+            $areaIds = AreaHead::where('user_id', auth()->user()->id)->pluck('area_id');
+            $school = School::whereIn('area_id', $areaIds)->paginate($perPage);
+            return view('admin.school.index', compact('school'));
+        }
+
         if (!empty($keyword)) {
             $school = School::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('code', 'LIKE', "%$keyword%")
@@ -34,7 +41,7 @@ class SchoolController extends Controller
         } else {
             $school = School::paginate($perPage);
         }
-        // dd($school);
+
         return view('admin.school.index', compact('school'));
     }
 
@@ -65,7 +72,6 @@ class SchoolController extends Controller
           'website'=> 'url',
           'email'=> 'required|string|email|max:255|unique:users',
           'phone'=> 'required|digits:11|regex:/^(?:\+?88)?01[15-9]\d{8}$/',
-          'area_id'=> 'required'
         ]);
 
         $school = new School;

@@ -22,12 +22,26 @@ class AreaController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
+        $area = null;
+        if (auth()->user()->hasRole('ah')) {
+            $area_ids = AreaHead::where('user_id', auth()->user()->id)->pluck('area_id');
+            $area = Area::whereIn('id', $area_ids);
+        }
+
         if (!empty($keyword)) {
-            $area = Area::where('district', 'LIKE', "%$keyword%")
-                ->orWhere('thana', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
+            if($area == null)
+                $area = Area::where('district', 'LIKE', "%$keyword%")
+                    ->orWhere('thana', 'LIKE', "%$keyword%")
+                    ->paginate($perPage);
+            else
+                $area = $area->where('district', 'LIKE', "%$keyword%")
+                    ->orWhere('thana', 'LIKE', "%$keyword%")
+                    ->paginate($perPage);
         } else {
-            $area = Area::paginate($perPage);
+            if($area == null)
+                $area = Area::paginate($perPage);
+            else
+                $area = $area->paginate($perPage);
         }
 
         return view('admin.area.index', compact('area'));

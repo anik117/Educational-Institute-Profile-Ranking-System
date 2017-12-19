@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use App\User;
 use App\Area;
+use App\AreaHead;
 use App\School;
+use App\Headmaster;
 use Illuminate\Http\Request;
 use Validator;
 use Redirect;
@@ -21,12 +23,24 @@ class UserController extends Controller
     {
         $keyword = $request->get('search');
         $perPage = 25;
-        if (!empty($keyword)) {
 
-            $user = User::where('name','LIKE',"%$keyword%")->paginate($perPage);
+        if (auth()->user()->hasRole('ah')) {
+            $ah = AreaHead::where('user_id', auth()->user()->id)->first();
+            $schoolIds = School::where('area_id', $ah->area_id)->pluck('id');
+            $useIds = Headmaster::whereIn('school_id', $schoolIds)->pluck('user_id');
+            $user = User::whereIn('id', $useIds)->where('name','LIKE',"%$keyword%")->paginate($perPage);
+            return view('admin.user.index', compact('user'));
+        }
+
+        $user = null;
+        if(auth()->user()->hasRole('ah')) $user = User::role('hm');
+        if (!empty($keyword)) {
+            if($user == null) $user = User::where('name','LIKE',"%$keyword%")->paginate($perPage);
+            else $user = $user->where('name','LIKE',"%$keyword%")->paginate($perPage);
 
         } else {
-            $user = User::paginate($perPage);
+            if($user == null) $user = User::paginate($perPage);
+            else $user = $user->paginate($perPage);
         }
         return view('admin.user.index', compact('user'));
     }
