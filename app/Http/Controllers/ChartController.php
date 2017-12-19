@@ -12,10 +12,8 @@ use DB;
 class ChartController extends Controller
 {
     public function chart()
-
-      {
-
-        $chart = Charts::multiDatabase('bar', 'highcharts')
+    {
+        $chart = Charts::multiDatabase('line', 'highcharts')
             ->title("User, Area and Schools")
             ->dataset('User', User::all())
             ->dataset('Area', Area::all())

@@ -87,15 +87,7 @@ class UserController extends Controller
         //     ->withErrors($validator)
         //     ->withInput();
         // }
-
-        // //generate a password for the new users
-        // $pw = User::generatePassword();
         
-        // $user = new User;
-        // $user->name = $request->input('name');
-        // $user->email = $request->input('email');
-        // $user->password = $pw;
-        // $user->save();
         $user->assignRole($roles);
         User::sendWelcomeEmail($requestData);
         return redirect('admin/user')->with('flash_message', 'User added!');

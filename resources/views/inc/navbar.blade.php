@@ -48,7 +48,7 @@
                         @endhasanyrole
                     </li> --}}
                     <li class="dropdown">
-                        @hasanyrole('deo|ah|hm|sa')
+                        @hasanyrole('deo|ah|hm')
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification <span class="badge" style="background: #ef0e64">2</span></a>
                         @endhasanyrole
                       <ul class="dropdown-menu">
@@ -69,7 +69,7 @@
                                 <a href="{{ route('change.password') }}">Change Password</a>
                             </li>
                             <li>
-                                @role('deo|ah|hm|sa')
+                                @role('deo|ah|hm')
                                     <a href="/admin">Admin Dashboard</a>
                                 @endrole
                                 <a href="{{ route('logout') }}"

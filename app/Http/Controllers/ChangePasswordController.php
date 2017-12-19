@@ -19,16 +19,16 @@ class ChangePasswordController extends Controller
 
     	$user = User::where('email', auth()->user()->email)->first();
      	if(Hash::check($request->current_password, $user->password)){
-			if($request->password == $request->password_confirmation){
-				$user->password = bcrypt($request->password);
-				$user->save();
-			}
-			else{
-				return redirect('/change/password');
-			}
+  			if($request->password == $request->password_confirmation){
+  				$user->password = bcrypt($request->password);
+  				$user->save();
+  			}
+  			else{
+  				return redirect('/change/password');
+  			}
     	}
     	else{
-			return redirect('/change/password');
+			 return redirect('/change/password');
     	}
     	return redirect('/admin');
     }

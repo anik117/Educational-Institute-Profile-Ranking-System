@@ -60,6 +60,38 @@
 		</section>
 		<!-- END #fh5co-projects -->
 
+
+		<section id="fh5co-projects">
+			<div class="container">
+				<div class="row row-bottom-padded-md">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<h2 class="fh5co-lead animate-box">Schools Charts</h2>
+						<p class="fh5co-sub-lead animate-box">
+							School charts
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					@foreach ($schools as $school)
+					<div class="col-md-6 col-sm-6 col-xxs-12 animate-box">
+						<a href="/school/{{$school->id}}" target="_blank">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4>{{ $school->name }}</h4>
+								</div>
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua..</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					@endforeach
+				</div>
+			</div>
+		</section>
+
 		<section id="fh5co-features-2" style="background: #fff">
 			<div class="container">
 				<div class="col-md-12">

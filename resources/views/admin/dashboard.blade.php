@@ -8,9 +8,12 @@
             <div class="col-md-9">
                 <div class="jumbotron" style="background: #fff; border: 2px solid rgba(0, 0, 0, 0.1);">
                     <h4>Welcome <b>{{ Auth::user()->name }}</b>!</h4>
+                    @role('deo')
                     <p class="text-muted">Manage system.</p>
+                    @endrole
                 </div>
 
+                @role('deo')
                 <div class="row">
                     <div class="col-md-4">
                         <div class="panel panel-primary">
@@ -49,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+                @endrole
             </div>
         </div>
     </div>

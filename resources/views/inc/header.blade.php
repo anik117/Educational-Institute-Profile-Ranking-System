@@ -13,8 +13,8 @@
 				<li class="fh5co-cta-btn"><a href="{{ route('register') }}">Register</a></li>
 				@else
 				<li>
-				    @role('deo|ah|hm|sa')
-				        <a href="/dashboard">Dashboard</a>
+				    @role('deo|ah|hm')
+				        <a href="/admin">Dashboard</a>
 				    @endrole
 				</li>
 				<li class="fh5co-cta-btn">
