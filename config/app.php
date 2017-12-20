@@ -164,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'auth.password.tokens' => Illuminate\Auth\Passwords\TokenRepositoryInterface::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

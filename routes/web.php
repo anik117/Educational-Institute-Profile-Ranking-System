@@ -57,3 +57,5 @@ Route::get('/area', 'AreaShowController@index');
 
 Route::get('/school/{id}', 'SchoolShowController@show');
 Route::get('/school', 'SchoolShowController@index');
+
+Route::get('/pdf', 'PDFController@pdf');
