@@ -27,36 +27,6 @@
 			</div>
 		</section>
 		<!-- END #fh5co-hero -->
-
-
-		<section id="fh5co-projects">
-			<div class="container">
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<h2 class="fh5co-lead animate-box">Top Schools</h2>
-						<p class="fh5co-sub-lead animate-box">
-							Recent top positioned schools.
-						</p>
-					</div>
-				</div>
-
-				<div class="row">
-
-					@foreach ($schools as $index => $school)
-					<div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-						<a href="/school/{{$school->id}}" target="_blank" class="fh5co-project-item">
-							<div class="fh5co-text">
-								<h1 class="text-center">{{ $index +1 }}.</h1>
-								<h2>{{ $school->name }}</h2>
-								<p>{{ $school->area->thana }}, {{ $school->area->district }}</p>
-							</div>
-						</a>
-					</div>
-					@endforeach
-
-				</div>
-			</div>
-		</section>
 		<!-- END #fh5co-projects -->
 
 		<section id="fh5co-features-2" style="background: #fff">
@@ -64,24 +34,19 @@
 				<div class="col-md-12">
 					<h2 class="fh5co-lead text-center">List of Ranking</h2>
 
-					@foreach ($schools as $index => $school)
+					@foreach ($ranks as $index => $rank)
 					<div class="fh5co-feature">
 						<div class="fh5co-icon">
-							<i>{{ $index +1 }}.</i>
+							<i>{{ $index +1 }}</i>
 						</div>
-						<a href="/school/{{$school->id}}" target="_blank">
+						<a href="/school/{{$rank->school->id}}" target="new">
 							<div class="fh5co-text">
-								<h3>{{$school->name}}</h3>
-								<h4>{{ $school->area->thana }}, {{ $school->area->district }}</h4>
+								<h3>{{$rank->school->name}}</h3>
+								<h4>{{ $rank->school->area->thana }}, {{ $rank->school->area->district }}</h4>
 							</div>
 						</a>
 					</div>
 					@endforeach
-
-					<div class="fh5co-btn-action">
-						<a href="#" class="btn btn-primary">More Rankings</a>
-					</div>
-
 				</div>
 			</div>
 		</section>

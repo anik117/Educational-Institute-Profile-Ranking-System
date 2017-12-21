@@ -59,3 +59,5 @@ Route::get('/school/{id}', 'SchoolShowController@show');
 Route::get('/school', 'SchoolShowController@index');
 
 Route::get('/pdf', 'PDFController@pdf');
+
+Route::get('/generate_rank', 'PagesController@generateRank')->name('generate_rank');

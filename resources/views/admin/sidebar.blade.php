@@ -44,6 +44,11 @@
                 <a href="{{ route('chart') }}"> Chart</a>
                 @endrole
             </li>
+            <li role="presentation">
+                @role('deo')
+                <a href="{{route('generate_rank')}}"> Generate Rank</a>
+                @endrole
+            </li>
         </ul>
 	    </div>
 	</div>

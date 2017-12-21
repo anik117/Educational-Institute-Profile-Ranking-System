@@ -25,7 +25,6 @@ class SchoolRankingCriterium extends Model
      *
      * @var array
      */
-    protected $fillable = ['pass', 'attendance', 'students', 'teachers', 'fee', 'class', 'school_id'];
 
     public function school()
     {
