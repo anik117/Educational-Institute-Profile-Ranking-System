@@ -69,7 +69,7 @@ class AreaController extends Controller
     {
         $area = $request->validate([
           'district' => 'required|alpha',
-          'thana'=> 'required|alpha',
+          'thana'=> 'required',
         ]);
         
         $area = new Area;

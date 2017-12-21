@@ -10,7 +10,7 @@
 			<ul class="pull-right right-menu">
 				@guest
 				<li><a href="{{ route('login') }}">Login</a></li>
-				{{-- <li class="fh5co-cta-btn"><a href="{{ route('register') }}">Register</a></li> --}}
+				<li class="fh5co-cta-btn"><a href="{{ route('register') }}">Register</a></li>
 				@else
 				<li>
 				    @role('deo|ah|hm')

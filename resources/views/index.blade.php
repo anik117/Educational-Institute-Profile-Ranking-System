@@ -2,7 +2,7 @@
 
 @section('content')
 
-		<section id="fh5co-hero" class="js-fullheight" style="background-image: url(https://cdn.pixabay.com/photo/2016/10/29/09/31/abstract-1780181_960_720.png);" data-next="yes">
+		<section id="fh5co-hero" class="js-fullheight" style="background-image: url(http://www.vmagroup.com/wp-content/uploads/2015/12/backtoschool1.jpg);" data-next="yes">
 			<div class="fh5co-overlay"></div>
 			<div class="container">
 				<div class="fh5co-intro js-fullheight">
