@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'SRS') }}
+                {{ config('app.name', 'School Ranking System') }}
             </a>
         </div>
 

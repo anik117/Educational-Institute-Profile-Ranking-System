@@ -1,8 +1,5 @@
 <div class="col-md-3">
 	<div class="panel panel-primary panel-flush">
-	    <div class="panel-heading">
-	    	<h4 style="color: #fff">Sidebar</h4>
-	  	</div>
 	    <div class="panel-body">
         <ul class="nav" role="tablist">
             <li role="presentation">
