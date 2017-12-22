@@ -1,5 +1,6 @@
 # School Ranking System
-##Introduction
+
+## Introduction
 School Ranking System is an online platform for ranking schools in a particular area based on school’s performance criteria. The system provides top ranked schools to highlight their progress and performance to the student and guardians. It also finds out those schools which needs to be taken care of in terms of their poor rank and progress.
 
 District Education Office can add, remove area in a district. The District Education Office assigns an Area Head for the particular area by providing Area Head’s name, email id, contact number and by selecting area. He/she has the authority to verify school profile and activities.
@@ -8,7 +9,7 @@ Area Head assigns Headmaster to the specific school by providing school name, co
 
 Headmaster of a school provide student information that are number of students, school fee, percentage of pass, percentage of attendence for each class.
 
-##Installation Instructions
+## Installation Instructions
 Prerequisites : Git, Composer, Xampp/Wamp
 
 ### Step-1: Install git and Clone this repository
@@ -33,5 +34,5 @@ and open the browser to see the peoject
 ##Laravel Documentation
 Here you can get the help from official laravel documentation to run the project. 
 
-[laravel] https://laravel.com/docs/5.5
+[laravel documentation] https://laravel.com/docs/5.5
 
