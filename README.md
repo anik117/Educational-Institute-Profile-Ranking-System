@@ -32,7 +32,7 @@ php artisan serve
 and open the browser to see the peoject
 ### Step-8: Register account and assign role 'deo' from the database to that user to access admin dashboard.
 
-##Laravel Documentation
+## Laravel Documentation
 Here you can get the help from official laravel documentation to run the project. 
 
 [laravel documentation] https://laravel.com/docs/5.5
