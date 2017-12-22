@@ -24,6 +24,7 @@ https://github.com/anik117/School-Ranking-System.git
 copmoser update
 ````
 ### Step-6: Create database named 'srs' and import srs.sql file that can be found in project directory
+[sql file] https://github.com/anik117/School-Ranking-System/blob/master/srs.sql
 ### Step-7: Type this coomand to run the project
 ````
 php artisan serve
