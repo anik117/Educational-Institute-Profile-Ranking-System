@@ -21,7 +21,7 @@ https://github.com/anik117/School-Ranking-System.git
 ### Step-4: Install local server (Xampp/Wamp/Mamp) and run the server
 ### Step-5: Open terminal and update composer in that project directory
 ````
-copmoser update
+composer update
 ````
 ### Step-6: Create database named 'srs' and import srs.sql file that can be found in project directory
 [sql file] https://github.com/anik117/School-Ranking-System/blob/master/srs.sql
@@ -36,4 +36,8 @@ and open the browser to see the peoject
 Here you can get the help from official laravel documentation to run the project. 
 
 [laravel documentation] https://laravel.com/docs/5.5
+
+## Live Version of This Project
+
+https://schoolrankingbd.org
 
